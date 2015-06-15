@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html;"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,10 +20,16 @@
 
 <!-- Search Area -->
 <div class="row">
+  <div class="col-lg-12" style="text-align:center;">
+  <h2>Welcome to the place search application</h2>
+  </div><!-- /.col-lg-12 -->
+    
+</div><!-- /.row -->
+<div class="row">
    	<form action="search" method="post">
 	<div class="col-lg-12">
     	<div class="input-group">
-	      		<input type="text" class="form-control" name="place" placeholder="Search for...">
+	      		<input type="text" class="form-control" value="${place}" name="place" placeholder="Search for...">
 	      		<span class="input-group-btn">
 	        		<input class="btn btn-default" type="submit">Search!</input>
 	      		</span>
@@ -35,17 +42,18 @@
 <div id="map-canvas" style="height:600px; width:100%"></div>
 
 <script>
-	var locations = [
-                 ['Bondi Beach', -33.890542, 151.274856, 4],
-                 ['Coogee Beach', -33.923036, 151.259052, 5],
-                 ['Cronulla Beach', -34.028249, 151.157507, 3],
-                 ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-                 ['Maroubra Beach', -33.950198, 151.259302, 1]
-               ];
-
+	var locations = [	
+		<c:forEach var="place" items="${searchedPlaces}" varStatus="loop">
+	   		["${place.name}", ${place.latitude}, ${place.longitude}, ${loop.index}],
+		</c:forEach>
+	];
+	
+	if (locations.length==0) {
+		document.getElementById('map-canvas').innerHTML = "<div style=\"text-align:center;\"><h3>No results found.</h3>";	
+	}
                var map = new google.maps.Map(document.getElementById('map-canvas'), {
-                 zoom: 10,
-                 center: new google.maps.LatLng(-33.92, 151.25),
+                 zoom: 12,
+                 center: new google.maps.LatLng(locations[0][1], locations[0][2]),
                  mapTypeId: google.maps.MapTypeId.ROADMAP
                });
 

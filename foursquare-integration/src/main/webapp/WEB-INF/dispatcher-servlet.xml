@@ -12,7 +12,7 @@
  
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	 	<property name="prefix">
-	   		<value>*</value>
+	   		<value>index</value>
 	 	</property>
 	 	<property name="suffix">
 	    	<value>.jsp</value>
@@ -28,10 +28,10 @@
 	</bean>
 
 	<bean id="placeSearchController" class="org.whitbread.foursquare.controller.PlaceSearchController">
-		<property name="placeSearchService" ref="placeSearchService"></property>
+		<property name="searchService" ref="searchService"></property>
 	</bean>
 
-	<bean id="placeSearchService" class="org.whitbread.foursquare.service.PlaceSearchServiceImpl">
+	<bean id="searchService" class="org.whitbread.foursquare.service.PlaceSearchServiceImpl">
 	</bean>
 	
 </beans>

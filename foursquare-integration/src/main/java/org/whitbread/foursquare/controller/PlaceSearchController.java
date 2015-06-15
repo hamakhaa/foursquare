@@ -10,24 +10,30 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.whitbread.foursquare.model.Place;
 import org.whitbread.foursquare.service.PlaceSearchService;
 
+
 /**
- * Controller that looks for places near to the place provided for search
+ * Controller that looks for places near 
+ * to the place provided for search
  * @author hamakhaa
  *
  */
 @Controller
 public class PlaceSearchController {
 
+	/**
+	 * searchService to get the data from four square 
+	 */
 	private PlaceSearchService searchService;
 
 	@RequestMapping (value="/search" , method = RequestMethod.POST)
-	public String searchPlace (@RequestParam("place") String place,Model model) {
+	public String searchPlaces (@RequestParam("place") String place,Model model) {
 		final List <Place> searchedPlaces =  searchService.findPlacesByName(place);
 		model.addAttribute("searchedPlaces", searchedPlaces);
-		return null;
+		model.addAttribute("place", place);
+		return "";
 	}
 
-	public void setSearchService(PlaceSearchService searchService) {
+	public void setSearchService(final PlaceSearchService searchService) {
 		this.searchService = searchService;
 	}
 

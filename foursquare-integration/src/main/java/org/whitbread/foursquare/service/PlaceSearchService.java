@@ -11,6 +11,12 @@ import org.whitbread.foursquare.model.Place;
  */
 public interface PlaceSearchService {
 
+	/**
+	 * Finds nearest places to the place you 
+	 * have passed in as search parameter
+	 * @param name
+	 * @return List of nearest places
+	 */
 	public List<Place> findPlacesByName(String name);
 
 }
