@@ -25,7 +25,7 @@ public class PlaceSearchServiceImpl implements PlaceSearchService {
 	public List<Place> findPlacesByName(final String name) {
 		try {
 			final Client client = Client.create();
-			final WebResource webResource2 = client.resource("https://api.foursquare.com/v2/venues/explore?client_id="+CLIENT_ID+
+			final WebResource webResource2 = client.resource("https://api.foursquare.com/v2/venues/search?client_id="+CLIENT_ID+
 					"&client_secret"+CLIENT_SECRET+"&v=20130815&near"+name);
 			
 			final ClientResponse response2 = webResource2.accept("application/json").get(ClientResponse.class);
