@@ -1,4 +1,4 @@
-# whitbreadtest
+# Whitbread Test
 
 This is a technical test requested from the employer. 
 
