@@ -19,14 +19,16 @@
 
 <!-- Search Area -->
 <div class="row">
+   	<form action="search" method="post">
 	<div class="col-lg-12">
     	<div class="input-group">
-      		<input type="text" class="form-control" placeholder="Search for...">
-      		<span class="input-group-btn">
-        	<input class="btn btn-default" type="submit" method="POST" action="/search">Search!</button>
-      		</span>
+	      		<input type="text" class="form-control" name="place" placeholder="Search for...">
+	      		<span class="input-group-btn">
+	        		<input class="btn btn-default" type="submit">Search!</input>
+	      		</span>
     	</div><!-- /input-group -->
   	</div><!-- /.col-lg-12 -->
+    </form>	
 </div><!-- /.row -->
 
 <!-- Map Area -->

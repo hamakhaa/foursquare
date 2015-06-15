@@ -22,14 +22,16 @@
 	<bean id="handlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<value>
-	  	 		/search/*=placeSearchController
-	  	 		/search/**/*=placeSearchController
 	  	 		/search=placeSearchController
 			</value>
 		</property>
 	</bean>
 
-	<bean id="placeSearchController" class="org.whitebread.foursquare.controller.PlaceSearchController">
+	<bean id="placeSearchController" class="org.whitbread.foursquare.controller.PlaceSearchController">
+		<property name="placeSearchService" ref="placeSearchService"></property>
+	</bean>
+
+	<bean id="placeSearchService" class="org.whitbread.foursquare.service.PlaceSearchServiceImpl">
 	</bean>
 	
 </beans>
