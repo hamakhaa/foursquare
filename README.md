@@ -25,7 +25,9 @@ I have implemented the application as java spring mvc based web application,the 
 3. In turn it will use the PlaceSearchService class to find the nearest places using the foursquare API.
 4. The PlaceSearchService will get the response convert the objects into Place object and return back to PlaceSearchController that will return the data in the model.
 5. The index.jsp will access the model data to populate on the google map, if there are places returned in the model.
-6. For each venue/place foursquare returns lot of data. For this demo type of app and to make it simple, we have chosen to use the place name and latitude and longitude coordinates.  
+6. For each venue/place foursquare returns lot of properties. For this demo type of app and to make it simple, we have chosen to use the place name and latitude and longitude coordinates.  
+7. On the google map each place is marked with the icon, when you click on it you can see the name of the place.
+8. An screenshot is also included in the repo.
 
 # Why I havn't just used html/css/js
 A typical app like this will be much more complex with n-tier architecture and will have server side components for business logic. While implementing with HTML/CSS/JS/AJAX is easy and straight forward but I wanted to implement 
